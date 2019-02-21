@@ -15,7 +15,17 @@ public class EvaluationService {
 	 */
 	public String reverse(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+	  //  string = string.toLowerCase();
+		System.out.println(string);
+		String reversed ="";
+		for(int i = string.length() - 1; i >= 0; i--)
+        {
+			reversed = reversed + string.charAt(i);
+        }
+		
+		System.out.println(reversed);
+		return reversed;
 	}
 
 	/**
@@ -28,7 +38,21 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+		 String[] words = phrase.split(" |-");
+		String letters= "";
+		
+		for(int i = 0;   i < words.length ; i++)
+        {
+			
+			
+		letters = letters + words[i].substring(0, 1).toUpperCase();
+		System.out.println(i +letters);
+        }
+		
+	
+		
+		return letters;
 	}
 
 	/**
@@ -82,17 +106,55 @@ public class EvaluationService {
 
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
-			return false;
+			
+			System.out.println(sideOne + " " + sideTwo + " " + " " + sideThree);
+			
+		  if (sideOne == sideTwo && sideOne ==sideThree ) {
+			  return true;
+			  }
+		  
+		  else {
+			  return false;
+		  }
+			
+			
+			
+		
 		}
 
 		public boolean isIsosceles() {
+			
+			
+			 if (sideOne == sideTwo || sideOne ==sideThree ){
+				  return true;
+				  }
+			  
+			  else {
+				  return false;
+			  }
+				
+			
+			
 			// TODO Write an implementation for this method declaration
-			return false;
+		
 		}
 
 		public boolean isScalene() {
+			
+			 if (sideOne != sideTwo && sideOne !=sideThree ){
+				  return true;
+				  }
+			  
+			  else {
+				  return false;
+			  }
+			
+			
+			
+			
+			
 			// TODO Write an implementation for this method declaration
-			return false;
+			
 		}
 
 	}
@@ -114,6 +176,14 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		
+		
+		
+		
+		
+		
+		
 		return 0;
 	}
 
