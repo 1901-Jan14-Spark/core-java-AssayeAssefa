@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -177,14 +178,56 @@ public class EvaluationService {
 	public int getScrabbleScore(String string) {
 		// TODO Write an implementation for this method declaration
 		
+		  Map<String, Integer> score = new HashMap<String, Integer>(); 
+		  score.put("a", 1 );   score.put("e", 1 );
+		  score.put("i", 1 );   score.put("i", 1 );
+		  score.put("o", 1 );    score.put("u", 1 );
+		  score.put("l", 1 );   score.put("n", 1 );
+		  score.put("r", 1 );    score.put("s", 1 );
+		  score.put("t", 1 );     
+		  
+		  score.put("d", 2 );
+		  score.put("g", 2 ); 
+		  score.put("b", 3 );
+		  score.put("c", 3 );      score.put("m", 3 );
+		  score.put("p", 3 );       score.put("f", 4 );
+		  score.put("h", 4 );      
+		  score.put("v", 4 );       score.put("w", 4 );
+		  score.put("y", 4 );      score.put("j", 8 );
+		  score.put("k", 5 );      score.put("x", 8 );
+		  score.put("q", 10 );      score.put("z", 10 );
+		  
+     
+//		  Integer i = 0;
+//		  for ( Integer x : score){
+//			 total = total+score[i.lower()]
+//		 return total
+//		  
+//		  
+      Integer counter = 0;
+      String currentString = "";
+		  
+		  for (int i = 0; i < string.length(); i++){
+			  currentString = string.substring(i, i +1).toLowerCase();
+			  //  char c = Character.toLowerCase(string.charAt(i));        
+			 //   System.out.println(c);
+			
+		  
+			 
 		
+		  for (Map.Entry<String, Integer> entry : score.entrySet()) {
+			   
+			 
+			    if (entry.getKey().contains(currentString)){
+			    	
+			    	counter +=  entry.getValue();
+			    	
+			    }
+			}
 		
+		  }
 		
-		
-		
-		
-		
-		return 0;
+		return counter;
 	}
 
 	/**
@@ -220,7 +263,49 @@ public class EvaluationService {
 	 */
 	public String cleanPhoneNumber(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+
+			int counter = 0;
+		   StringBuilder SB = new StringBuilder();
+		   
+		   char[] nums = string.toCharArray(); 
+		   
+		   
+	        for (char x : nums)  {
+	            if (x == '-' || x == '+' || x == '(' || x == ')' || x == ' ' || x == '.') {
+	                     continue;
+	                   //  System.out.println(x);
+	            }
+	            
+	            
+	            
+	            if (!Character.isDigit(x))
+	            {
+	                throw new IllegalArgumentException("Lettersdetected");
+	              }
+	            
+	            
+	            counter++;
+	            SB.append(x);	
+			
+	
+			
+		
+		}
+		
+		
+		
+	      //  System.out.println( stringBuilder.toString());
+		
+		
+		if (counter > 10) {
+			  throw new IllegalArgumentException("More than 10 didgits");	
+			
+		}
+		
+		
+		
+		return SB.toString();
 	}
 
 	/**
@@ -234,7 +319,29 @@ public class EvaluationService {
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+		
+		
+		String[] stringArr = string.split(" ");
+      Map<String, Integer> wordCountMap = new HashMap<>();
+      
+      
+      
+		for (String x: stringArr) {
+		    if (wordCountMap.containsKey(x)) {
+		    	
+		        
+		    	wordCountMap.put(x, wordCountMap.get(x) + 1);
+		    } else {
+		       
+		    	wordCountMap.put(x, 1);
+		    }
+		
+		}
+		
+
+		
+		return wordCountMap;
 	}
 
 	/**
@@ -277,6 +384,14 @@ public class EvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
+			
+			
+			
+			
+			
+			
+			
+			
 			return 0;
 		}
 
@@ -314,7 +429,57 @@ public class EvaluationService {
 	 */
 	public String toPigLatin(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+
+		
+		String currentString;
+		String temp = string.toLowerCase();
+		char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+		char first = temp.charAt(0);
+		String cons = "";
+		
+		
+		
+		 for (int i = 0; i < string.length(); i++){
+		 currentString = string.substring(i, i +1).toLowerCase();
+	
+		 
+		 
+		 for (int x = 0; x < 5 ; x++) {
+				
+		
+			 if (currentString.contains(Character.toString(vowels[x]))){
+				 
+				 
+				 return string.substring(i, string.length())  + cons + "ay";
+				 
+				 
+				 
+			 }
+			
+			 		 
+			 }
+		 cons += currentString;
+		 
+		 
+
+			
+			//	return string + "ay";
+			}
+		
+		
+		string = string.substring(1);
+		string += first + "ay";
+		
+		
+		
+		return string;
+		
+		
+		
+		
+		
+		
 	}
 
 	/**
@@ -334,7 +499,23 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
 		return false;
+		
+		
+		
+		
+		
 	}
 
 	/**
@@ -444,6 +625,22 @@ public class EvaluationService {
 		 */
 		public static String encode(String string) {
 			// TODO Write an implementation for this method declaration
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			return null;
 		}
 
